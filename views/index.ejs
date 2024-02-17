@@ -1,0 +1,39 @@
+<!-- INDEX.ejs (entrypoint) FRONTEND -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Blogs</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Heading -->
+      <h1>My Blogs : Vansh Sikka</h1>
+      <a id="newPostBtn" href="/new">+ NEW POST</a>
+      <!-- Posts List -->
+      <ul id="postsList">
+        <% posts.forEach(post=> { %>
+        <li>
+          <!-- heading -->
+          <h2><%=post.title%></h2>
+          <!-- date -->
+          <small> <%=post.date %> </small>
+          <!-- body(content) -->
+          <p><%=post.content%></p>
+          <!-- author -->
+          <small>By: <%=post.author%> </small>
+
+          <!-- EDIT/DELETE buttons -->
+          <a class="edit" href="/edit/<%= post.id %>">EDIT</a>
+          <a class="delete" href="/api/posts/delete/<%= post.id %>">DELETE</a>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </body>
+</html>
+<!-- By Vansh Sikka -->
